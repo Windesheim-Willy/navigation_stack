@@ -1,2 +1,2 @@
 #!/bin/bash
-roslaunch navigation.launch
+roslaunch navigation.launch path:=$(pwd)

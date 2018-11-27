@@ -1,3 +1,3 @@
 #!/bin/bash
 
-roslauch mapping.launch sim:=true
+roslaunch mapping.launch path:=$(pwd)
