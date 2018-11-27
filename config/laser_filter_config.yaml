@@ -1,0 +1,11 @@
+scan_filter_chain:
+- name: rightCut
+  type: LaserScanAngularBoundsFilter
+  params:
+    lower_angle: -6
+    upper_angle: -2.1
+- name: leftCut
+  type: LaserScanAngularBoundsFilter
+  params:
+    lower_angle: 2.1
+    upper_angle: 6
