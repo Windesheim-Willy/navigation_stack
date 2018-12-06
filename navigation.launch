@@ -6,6 +6,7 @@
     	<node pkg="tf" type="static_transform_publisher" name="base_link_to_laser"
         	args="0.0 0.0 0.0 0.0 0.0 0.0 /base_link /laser 40" />
     
+    	<node pkg="tf" type="static_transform_publisher" name="base_link_to_sonar" args="0.0 0 0 0.0 0.0 0.0 /base_link /us_ranger 40"/>
     	<node pkg="tf" type="static_transform_publisher" name="world_to_map" args="0.0 0 0 0.0 0.0 0.0 /world /map 40"/>
     	<node pkg="tf" type="static_transform_publisher" name="world_to_map_nav" args="0.0 0 0 0.0 0.0 0.0 /world /map_nav 40"/>
 
