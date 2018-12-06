@@ -6,3 +6,9 @@ max_obstacle_height: 0.6
 min_obstacle_height: 0.0
 observation_sources: scan
 scan: {data_type: LaserScan, topic: /scan_filtered, marking: true, clearing: true, expected_update_rate: 0}
+
+plugins:
+    - {name: sonar,   type: "range_sensor_layer::RangeSensorLayer"}
+
+sonar:
+    topics: ['/us_ranger']
