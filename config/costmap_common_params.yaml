@@ -8,7 +8,10 @@ observation_sources: scan
 scan: {data_type: LaserScan, topic: /scan_filtered, marking: true, clearing: true, expected_update_rate: 0}
 
 plugins:
+    - {name: static_map,       type: "costmap_2d::StaticLayer"}
     - {name: sonar,   type: "range_sensor_layer::RangeSensorLayer"}
+    - {name: scan, type: "costmap_2d::ObstacleLayer"}
+    - {name: inflation_layer,    type: "costmap_2d::InflationLayer"}
 
 sonar:
     topics: ['/us_ranger']
