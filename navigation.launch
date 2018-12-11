@@ -81,5 +81,6 @@
 	    	<rosparam file="$(arg path)/config/global_costmap_params.yaml" command="load" />
 	    	<rosparam file="$(arg path)/config/base_local_planner_params.yaml" command="load" />
 		<remap from="map" to="map_nav"/>
+		<remap from="cmd_vel" to="cmd_vel_move_base"/>
 	</node>
 </launch>
