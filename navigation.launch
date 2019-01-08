@@ -8,13 +8,16 @@
     	<node pkg="tf" type="static_transform_publisher" name="base_link_to_laser"
         	args="0.0 0.0 0.0 0.0 0.0 0.0 /base_link /laser 40" />
     
-    	<node pkg="tf" type="static_transform_publisher" name="base_link_to_sonar" args="0.0 0 0 0.0 0.0 0.0 /base_link /us_ranger 40"/>
-    	<node pkg="tf" type="static_transform_publisher" name="world_to_map" args="0.0 0 0 0.0 0.0 0.0 /world /map 40"/>
+    	<node pkg="tf" type="static_transform_publisher" name="base_link_to_sonar_front" args="0.0 0 0 0.0 0.0 0.0 /base_link /front 40"/>
+    	<node pkg="tf" type="static_transform_publisher" name="base_link_to_sonar_right" args="0.0 0 0 -1.57 0.0 0.0 /base_link /backRight 40"/>
+    	<node pkg="tf" type="static_transform_publisher" name="base_link_to_sonar_left" args="0.0 0 0 1.57 0.0 0.0 /base_link /backLeft 40"/>
+    	
+        <node pkg="tf" type="static_transform_publisher" name="world_to_map" args="0.0 0 0 0.0 0.0 0.0 /world /map 40"/>
     	<node pkg="tf" type="static_transform_publisher" name="world_to_map_nav" args="0.0 0 0 0.0 0.0 0.0 /world /map_nav 40"/>
 
-  	<node pkg="laser_filters" type="scan_to_scan_filter_chain" name="laser_filter">
+  	<!-- <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="laser_filter">
     		<rosparam command="load" file="$(arg path)/config/laser_filter_config.yaml" />
-  	</node>
+  	</node> -->
 
     
     	<node pkg="rviz" type="rviz" name="rviz" args="-d $(arg path)/navigation.rviz"/>
@@ -27,7 +30,7 @@
         	<param name="publish_tf" value="true"/>
         	<param name="publish_odom" value="true"/>
         	<param name="use_odom" value="false"/>
-        	<param name="use_imu" value="true"/>
+        	<param name="use_imu" value="false"/>
         	<param name="use_vel" value="true"/>
         	<param name="use_alpha_beta" value="true"/>
         	<param name="max_iterations" value="10"/>
@@ -38,7 +41,7 @@
     	<node pkg="map_server" type="map_server" name="map_server_nav" args="$(arg path)/maps/T5_full_small_move_base.yaml" output="screen">
 		<remap from="map" to="map_nav"/>
 	</node>
-	
+
 	<node pkg="amcl" type="amcl" name="amcl" output="screen">
 		<param name="odom_model_type" value="diff"/>
 	  	<param name="odom_alpha5" value="0.1"/>

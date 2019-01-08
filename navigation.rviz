@@ -92,13 +92,25 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
+        backLeft:
+          Value: true
+        backRight:
+          Value: true
         base_link:
+          Value: true
+        front:
+          Value: true
+        imu_base:
+          Value: true
+        imu_link:
           Value: true
         laser:
           Value: true
         laser_mount_link:
           Value: true
         map:
+          Value: true
+        map_nav:
           Value: true
         odom:
           Value: true
@@ -110,13 +122,19 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        base_link:
-          laser:
-            {}
-        odom:
-          {}
         world:
           map:
+            odom:
+              base_link:
+                backLeft:
+                  {}
+                backRight:
+                  {}
+                front:
+                  {}
+                laser:
+                  {}
+          map_nav:
             {}
       Update Interval: 0
       Value: true
@@ -188,12 +206,12 @@ Visualization Manager:
       Class: rviz/Map
       Color Scheme: map
       Draw Behind: false
-      Enabled: false
+      Enabled: true
       Name: Map
       Topic: /move_base/local_costmap/costmap
       Unreliable: false
       Use Timestamp: false
-      Value: false
+      Value: true
     - Alpha: 0.699999988
       Class: rviz/Map
       Color Scheme: map
@@ -231,7 +249,7 @@ Visualization Manager:
   Global Options:
     Background Color: 0; 0; 0
     Default Light: true
-    Fixed Frame: map
+    Fixed Frame: laser
     Frame Rate: 30
   Name: root
   Tools:
@@ -261,7 +279,7 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Scale: 527.17865
+      Scale: 70.7395706
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz)
       X: 0.284944445
